@@ -1,0 +1,54 @@
+---
+import Article from "@components/Article.astro";
+import Layout from "@layouts/Layout.astro";
+
+export const getStaticPaths = () => {
+  return [
+    {
+      params: { id: "1" },
+      props: {
+        title: "状態の維持",
+        body: `ディレクティブを使用すると、ページ ナビゲーション間でコンポーネントと HTML 要素を (置き換えるのではなく) 保持できますtransition:persist。
+          たとえば、次の動画は、<video>同じビデオ要素を含む別のページに移動しても再生を続けます。これは、前方ナビゲーションと後方ナビゲーションの両方で機能します。`,
+      },
+    },
+    {
+      params: { id: "2" },
+      props: {
+        title: "組み込みのアニメーションディレクティブ",
+        body: `Astro には、デフォルトのトランジションをオーバーライドするためのいくつかの組み込みアニメーションが付属していますmorph。transition:animateAstroslideまたはトランジションを試すディレクティブを追加しますfade。
+          morph(デフォルト): ブラウザーは、ページの類似度に応じて、要素をアニメーション化する最適な方法を決定します。たとえば、要素の位置がページ間で異なる場合、要素は新しい位置に浮いているように見えます。要素がまったく同じ位置にある場合、まったく動いていないように見えます。
+          slide: 古いコンテンツが左にスライドアウトし、新しいコンテンツが右からスライドインするアニメーション。逆方向のナビゲーションでは、アニメーションは逆になります。
+          fade: 古いコンテンツがフェードアウトし、新しいコンテンツがフェードインするクロスフェード。`,
+      },
+    },
+    {
+      params: { id: "3" },
+      props: {
+        title: "アニメーションのカスタマイズ",
+        body: `任意の CSS アニメーション プロパティを使用して、トランジションのあらゆる側面をカスタマイズできます。
+          組み込みアニメーションをカスタマイズするには、まずアニメーションを からインポートしastro:transitions、次にカスタマイズ オプションを渡します。
+          以下の例では、組み込みfadeアニメーションの継続時間をカスタマイズします。`,
+      },
+    },
+  ];
+};
+
+const { id } = Astro.params;
+const { title, body } = Astro.props;
+---
+
+<Layout title="article">
+  <h1>記事ページ</h1>
+  <a href="/articles" class="link">一覧へ</a>
+
+  <Article id={id} title={title} body={body} />
+</Layout>
+
+<style>
+  .link {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 20px;
+  }
+</style>

@@ -1,0 +1,39 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Card from "@components/Card.astro";
+---
+
+<Layout title="articles">
+  <h1>記事一覧</h1>
+
+  <div class="wrap">
+    <Card
+      title="状態の維持"
+      body="状態が維持できます"
+      href="/articles/1"
+      src="https://images.unsplash.com/photo-1690061522418-a7be4cfb6e0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MjQyMTUxMQ&ixlib=rb-4.0.3&q=80&w=200"
+    />
+    <Card
+      title="組み込みのアニメーションディレクティブ"
+      body="アニメーションができます"
+      href="/articles/2"
+      src="https://plus.unsplash.com/premium_photo-1674582717488-500200d86129?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=800&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MjQyMTMxNw&ixlib=rb-4.0.3&q=80&w=200"
+    />
+    <Card
+      title="アニメーションのカスタマイズ"
+      body="カスタマイズも可能"
+      href="/articles/3"
+      src="https://images.unsplash.com/photo-1682814270823-b3b2bce8c6d8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY5MjQyMTUyNQ&ixlib=rb-4.0.3&q=80&w=200"
+    />
+  </div>
+</Layout>
+
+<style>
+  .wrap {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 40px;
+  }
+</style>

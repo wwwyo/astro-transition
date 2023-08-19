@@ -1,0 +1,39 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Video from "@components/Video.astro";
+---
+
+<Layout title="video">
+  <h1>ビデオ</h1>
+
+  <div class="card">
+    <a href="/video/2">
+      <div class="video">
+        <Video />
+      </div>
+    </a>
+    <p>
+      アメリカの広大な大地を巡るこのビデオでは、東海岸の歴史的な街並みから、中部の広大な平原、西海岸の壮大な山脈や海岸線まで、多様な風景を楽しむことができます。
+    </p>
+  </div>
+</Layout>
+
+<style>
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  .card {
+    border: 1px solid #e5e5e5;
+    height: 100%;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 40px;
+    align-items: center;
+  }
+  .video {
+    width: 200px;
+  }
+</style>

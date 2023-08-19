@@ -1,0 +1,43 @@
+---
+export type Props = {
+  id: string | undefined;
+  title: string;
+  body: string;
+};
+
+const { title, body, id } = Astro.props;
+---
+
+<article class="article">
+  <h2 class="article-title">{title}</h2>
+  <p class="article-content">
+    {body}
+  </p>
+  <div class="pagination">
+    {id !== "1" && <a href={`/articles/${(Number(id) ?? 1) - 1}`}>&lt; 前へ</a>}
+    {id !== "3" && <a href={`/articles/${(Number(id) ?? 1) + 1}`}>次へ &gt;</a>}
+  </div>
+</article>
+
+<style>
+  .article {
+    border: 1px solid #e5e5e5;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  .article-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .article-content {
+    font-size: 16px;
+  }
+
+  .pagination {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+</style>
